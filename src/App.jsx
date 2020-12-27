@@ -1,7 +1,12 @@
 import React from 'react';
+import Homepage from './pages/Homepage';
 
 function App() {
-  return <div>Hello World</div>;
+  return (
+    <div>
+      <Homepage />
+    </div>
+  );
 }
 
 export default App;
