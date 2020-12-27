@@ -8,13 +8,8 @@ const Directory = () => {
 
   return (
     <div className={styles['directory-menu']}>
-      {sections.map(({ title, id, imageUrl, isLarge }) => (
-        <MenuItem
-          key={id}
-          title={title}
-          imageUrl={imageUrl}
-          isLarge={isLarge}
-        />
+      {sections.map(({ id, ...otherSectionProps }) => (
+        <MenuItem key={id} {...otherSectionProps} />
       ))}
     </div>
   );
