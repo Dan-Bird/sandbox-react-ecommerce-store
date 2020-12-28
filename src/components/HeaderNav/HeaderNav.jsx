@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from '../../assets/crown-logo.svg';
 const HeaderNav = () => {
   return (
     <header className={styles.header}>
-      <Link className={styles['logo-container']} to="/">
+      <Link to="/">
         <Logo className={styles.logo} />
       </Link>
       <nav className={styles.nav}>

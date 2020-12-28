@@ -1,15 +1,11 @@
 .header {
   display: flex;
-  height: 70px;
   justify-content: space-between;
   margin-bottom: 25px;
   width: 100%;
-}
-
-.logo-container {
-  height: 100%;
-  padding: 25px;
-  width: 70px;
+  align-items: center;
+  padding: 25px 15px;
+  box-sizing: border-box;
 }
 
 .nav {
@@ -22,7 +18,13 @@
 
 .nav-link {
   color: inherit;
-  padding: 10px 15px;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:not(:last-of-type) {
+    padding: 10px 15px;
+  }
+  &:last-of-type {
+    padding: 10px 0px 10px 15px;
+  }
 }
