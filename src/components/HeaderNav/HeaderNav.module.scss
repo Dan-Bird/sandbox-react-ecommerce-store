@@ -21,10 +21,20 @@
   text-decoration: none;
   text-transform: uppercase;
 
-  &:not(:last-of-type) {
+  &:not(.nav-link--sign-in) {
     padding: 10px 15px;
   }
-  &:last-of-type {
-    padding: 10px 0px 10px 15px;
+  &.nav-link--sign-in {
+    padding: 10px 0 10px 15px;
   }
+}
+
+.sign-out-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px 0px 10px 15px;
+  text-transform: uppercase;
 }

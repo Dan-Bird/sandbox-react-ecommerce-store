@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      <HeaderNav />
+      <HeaderNav currentUser={currentUser} />
       <Switch>
         <Route exact path="/">
           <Homepage />
