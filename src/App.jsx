@@ -21,8 +21,6 @@ function App() {
               ...snapShot.data(),
             },
           });
-
-          console.log(currentUser);
         });
       } else {
         setCurrentUser(null);
