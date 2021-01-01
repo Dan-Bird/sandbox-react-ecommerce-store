@@ -1,13 +1,20 @@
 $link-padding: 10px 15px;
+$header-side-padding: 15px;
 
 .header {
+  align-items: center;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  padding: 25px $header-side-padding;
+  position: relative;
   width: 100%;
-  align-items: center;
-  padding: 25px 15px;
-  box-sizing: border-box;
+
+  & [class^='CartDropdown'] {
+    right: $header-side-padding;
+    top: 80px;
+  }
 }
 
 .nav {

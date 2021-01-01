@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import styles from './HeaderNav.module.scss';
 import { ReactComponent as Logo } from '../../assets/crown-logo.svg';
 import CartIcon from '../CartIcon/CartIcon';
+import CartDropdown from '../CartDropdown/CartDropdown';
 
 const HeaderNav = ({ currentUser }) => {
   return (
@@ -34,6 +35,7 @@ const HeaderNav = ({ currentUser }) => {
 
         <CartIcon />
       </nav>
+      <CartDropdown />
     </header>
   );
 };
