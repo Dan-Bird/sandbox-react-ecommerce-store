@@ -4,6 +4,7 @@ import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import styles from './HeaderNav.module.scss';
 import { ReactComponent as Logo } from '../../assets/crown-logo.svg';
+import CartIcon from '../CartIcon/CartIcon';
 
 const HeaderNav = ({ currentUser }) => {
   return (
@@ -20,19 +21,18 @@ const HeaderNav = ({ currentUser }) => {
         </Link>
         {currentUser ? (
           <button
-            className={styles['sign-out-button']}
+            className={`${styles['nav-link']} ${styles['sign-out-button']}`}
             onClick={() => auth.signOut()}
           >
             Sign Out
           </button>
         ) : (
-          <Link
-            className={`${styles['nav-link']} ${styles['nav-link--sign-in']}`}
-            to="/signin"
-          >
+          <Link className={styles['nav-link']} to="/signin">
             Sign In
           </Link>
         )}
+
+        <CartIcon />
       </nav>
     </header>
   );

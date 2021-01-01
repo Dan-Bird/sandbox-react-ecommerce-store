@@ -1,3 +1,5 @@
+$link-padding: 10px 15px;
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -18,15 +20,9 @@
 
 .nav-link {
   color: inherit;
+  padding: $link-padding;
   text-decoration: none;
   text-transform: uppercase;
-
-  &:not(.nav-link--sign-in) {
-    padding: 10px 15px;
-  }
-  &.nav-link--sign-in {
-    padding: 10px 0 10px 15px;
-  }
 }
 
 .sign-out-button {
@@ -35,6 +31,6 @@
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  padding: 10px 0px 10px 15px;
+  padding: $link-padding;
   text-transform: uppercase;
 }
