@@ -15,8 +15,6 @@ const SignUp = () => {
   const [userDetails, setUserDetails] = useState(initialState);
   const { displayName, email, password, confirmPassword } = userDetails;
 
-  console.log({ displayName, email, password, confirmPassword });
-
   const handleSubmit = async e => {
     e.preventDefault();
 
