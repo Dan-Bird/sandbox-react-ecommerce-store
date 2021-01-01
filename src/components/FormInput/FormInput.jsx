@@ -8,6 +8,7 @@ const FormInput = ({ handleChange, label, value, ...otherProps }) => {
         className={styles['form-input']}
         onChange={handleChange}
         {...otherProps}
+        value={value}
       />
       {label && (
         <label
