@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
+import { connect } from 'react-redux';
 import styles from './HeaderNav.module.scss';
 import { ReactComponent as Logo } from '../../assets/crown-logo.svg';
 
@@ -37,4 +38,8 @@ const HeaderNav = ({ currentUser }) => {
   );
 };
 
-export default HeaderNav;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(HeaderNav);
