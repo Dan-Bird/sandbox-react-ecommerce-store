@@ -9,8 +9,7 @@ const CustomButton = ({
 }) => {
   return (
     <button
-      className={`
-          ${styles['custom-button']}
+      className={`${styles['custom-button']}
           ${isGoogleSignIn ? styles['custom-button--google-sign-in'] : ''}
           ${inverted ? styles['custom-button--inverted'] : ''}
         `}
