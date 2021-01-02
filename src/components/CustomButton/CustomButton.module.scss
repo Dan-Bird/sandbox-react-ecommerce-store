@@ -1,18 +1,23 @@
 .custom-button {
-  background-color: black;
-  border: none;
-  color: white;
   cursor: pointer;
+  display: flex;
   font-family: inherit;
   font-size: 15px;
   font-weight: bolder;
   height: 50px;
+  justify-content: center;
   letter-spacing: 0.5px;
   line-height: 50px;
   min-width: 165px;
   padding: 0 35px;
   text-transform: uppercase;
   width: auto;
+}
+
+.custom-button:not(.custom-button--google-sign-in):not(.custom-button--inverted) {
+  background-color: black;
+  border: none;
+  color: white;
 
   &:hover {
     background-color: white;
@@ -23,10 +28,22 @@
 
 .custom-button--google-sign-in {
   background-color: #4285f4;
+  border: none;
   color: white;
 
   &:hover {
     background-color: #357ae8;
+    color: white;
+  }
+}
+
+.custom-button--inverted {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+
+  &:hover {
+    background-color: black;
     border: none;
     color: white;
   }
