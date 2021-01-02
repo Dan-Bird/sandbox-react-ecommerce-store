@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { setCurrentUser } from './redux/user/user.actions';
+
 import HeaderNav from './components/HeaderNav/HeaderNav';
 import Homepage from './pages/Homepage/Homepage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
+import Checkout from './pages/Checkout/Checkout';
 
 function App({ setCurrentUser, currentUser }) {
   useEffect(() => {
@@ -46,6 +48,10 @@ function App({ setCurrentUser, currentUser }) {
 
         <Route exact path="/signin">
           {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
+        </Route>
+
+        <Route path="/checkout">
+          <Checkout />
         </Route>
       </Switch>
     </div>
