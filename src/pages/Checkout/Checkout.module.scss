@@ -1,0 +1,32 @@
+.checkout {
+  width: 55%;
+  min-height: 90vh;
+  margin: 50px auto 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  border-bottom: 1px solid black;
+}
+
+.table-heading {
+  text-transform: capitalize;
+  text-align: left;
+
+  &:not(:last-child) {
+    width: 23%;
+  }
+  &:last-child {
+    width: 8%;
+  }
+}
+
+.total {
+  font-size: 36px;
+  width: 100%;
+  text-align: right;
+}
