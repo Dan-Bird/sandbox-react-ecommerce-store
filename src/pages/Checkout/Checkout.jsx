@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
 import {
   selectCartItems,
   selectCartTotal,
@@ -36,11 +37,7 @@ const Checkout = ({ cartItems, cartTotal }) => {
 };
 
 function renderTableBody(cartItems) {
-  return cartItems.map(item => (
-    <tr key={item.id}>
-      <td>{item.name}</td>
-    </tr>
-  ));
+  return cartItems.map(item => <CheckoutItem cartItem={item} key={item.id} />);
 }
 
 const mapStateToProps = createStructuredSelector({
