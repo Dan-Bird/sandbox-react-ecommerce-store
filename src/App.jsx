@@ -42,9 +42,7 @@ function App({ setCurrentUser, currentUser }) {
           <Homepage />
         </Route>
 
-        <Route path="/shop">
-          <ShopPage />
-        </Route>
+        <Route path="/shop" component={ShopPage} />
 
         <Route exact path="/signin">
           {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
