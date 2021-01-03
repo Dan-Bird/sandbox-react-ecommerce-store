@@ -27,7 +27,7 @@ const Checkout = ({ cartItems, cartTotal }) => {
         <tfoot>
           <tr>
             <td className={styles.total} colSpan="5">
-              TOTAL: ${cartTotal}
+              TOTAL: £{cartTotal}
             </td>
           </tr>
         </tfoot>
