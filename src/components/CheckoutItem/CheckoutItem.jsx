@@ -4,7 +4,7 @@ import { clearItemFromCart } from '../../redux/cart/cart.actions';
 import styles from './CheckoutItem.module.scss';
 
 const CheckoutItem = ({ cartItem, clearItem, ...otherProps }) => {
-  const { name, quantity, price, imageUrl, id } = cartItem;
+  const { name, quantity, price, imageUrl } = cartItem;
 
   return (
     <tr className={styles['checkout-item']} {...otherProps}>
@@ -14,11 +14,7 @@ const CheckoutItem = ({ cartItem, clearItem, ...otherProps }) => {
       <td className={styles.name}>{name}</td>
       <td className={styles.quantity}>{quantity}</td>
       <td className={styles.price}>£{price}</td>
-      <td>
-        <button
-          className={styles['remove-button']}
-          onClick={() => clearItem(id)}
-        >
+        <button className={styles.button} onClick={() => clearItem(cartItem)}>
           &#10005;
         </button>
       </td>
