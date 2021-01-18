@@ -7,7 +7,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
 import HeaderNav from './components/HeaderNav/HeaderNav';
-import Homepage from './pages/Homepage/Homepage';
+import Home_Page from './pages/Homepage/Home-Page';
 import ShopPage from './pages/ShopPage/ShopPage';
 import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
 import Checkout from './pages/Checkout/Checkout';
@@ -39,7 +39,7 @@ function App({ setCurrentUser, currentUser }) {
       <HeaderNav />
       <Switch>
         <Route exact path="/">
-          <Homepage />
+          <Home_Page />
         </Route>
 
         <Route path="/shop" component={ShopPage} />
