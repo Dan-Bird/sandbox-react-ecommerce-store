@@ -6,16 +6,19 @@ import {
   convertCollectionsSnapshotToMap,
 } from '../../firebase/firebase.utils';
 import Collection from '../Collection/Collection';
+import { updateCollections } from '../../redux/shop/shop.actions';
+import { connect } from 'react-redux';
 
-const Shop = ({ match }) => {
+const Shop = ({ match, updateCollections }) => {
   const unsubscribeFromSnapshot = null;
 
   useEffect(() => {
     const collectionRef = firestore.collection('collections');
     collectionRef.onSnapshot(async snapshot => {
-      convertCollectionsSnapshotToMap(snapshot);
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+      updateCollections(collectionsMap);
     });
-  }, []);
+  }, [updateCollections]);
 
   return (
     <div>
@@ -28,4 +31,9 @@ const Shop = ({ match }) => {
   );
 };
 
-export default Shop;
+const mapDispatchToProps = dispatch => ({
+  updateCollections: collectionsMap =>
+    dispatch(updateCollections(collectionsMap)),
+});
+
+export default connect(null, mapDispatchToProps)(Shop);
