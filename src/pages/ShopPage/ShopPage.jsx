@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
 import { createStructuredSelector } from 'reselect';
-import {
-  selectIsCollectionFetching,
-  selectIsCollectionLoaded,
-} from '../../redux/shop/shop.selectors';
+import { selectIsCollectionLoaded } from '../../redux/shop/shop.selectors';
 
 import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview';
 import Collection from '../Collection/Collection';
@@ -49,7 +46,6 @@ const Shop = ({ match, hasCollectionLoaded, fetchCollectionsStartAsync }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isCollectionFetching: selectIsCollectionFetching,
   hasCollectionLoaded: selectIsCollectionLoaded,
 });
 
