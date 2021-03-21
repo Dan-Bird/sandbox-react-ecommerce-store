@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -13,26 +12,26 @@ import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
 import Checkout from './pages/Checkout/Checkout';
 
 function App({ setCurrentUser, currentUser }) {
-  useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+  // useEffect(() => {
+  //   const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  //     if (userAuth) {
+  //       const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
+  //       userRef.onSnapshot(snapShot => {
+  //         setCurrentUser({
+  //           id: snapShot.id,
+  //           ...snapShot.data(),
+  //         });
+  //       });
+  //     }
 
-      setCurrentUser(userAuth);
-    });
+  //     setCurrentUser(userAuth);
+  //   });
 
-    return () => {
-      unsubscribeFromAuth();
-    };
-  }, [setCurrentUser]);
+  //   return () => {
+  //     unsubscribeFromAuth();
+  //   };
+  // }, [setCurrentUser]);
 
   return (
     <div>
