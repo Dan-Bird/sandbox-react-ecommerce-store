@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import { setCurrentUser } from './redux/user/user.actions';
 
 import HeaderNav from './components/HeaderNav/HeaderNav';
 import HomePage from './pages/Homepage/HomePage';
@@ -11,28 +10,7 @@ import ShopPage from './pages/ShopPage/ShopPage';
 import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
 import Checkout from './pages/Checkout/Checkout';
 
-function App({ setCurrentUser, currentUser }) {
-  // useEffect(() => {
-  //   const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-  //     if (userAuth) {
-  //       const userRef = await createUserProfileDocument(userAuth);
-
-  //       userRef.onSnapshot(snapShot => {
-  //         setCurrentUser({
-  //           id: snapShot.id,
-  //           ...snapShot.data(),
-  //         });
-  //       });
-  //     }
-
-  //     setCurrentUser(userAuth);
-  //   });
-
-  //   return () => {
-  //     unsubscribeFromAuth();
-  //   };
-  // }, [setCurrentUser]);
-
+function App({ currentUser }) {
   return (
     <div>
       <HeaderNav />
@@ -59,8 +37,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
