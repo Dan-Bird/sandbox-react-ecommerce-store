@@ -1,4 +1,4 @@
-import sectionData from '../../data/directory.data';
+import sectionData from '../../../src/contexts/directory/directory.data.js';
 
 const INITIAL_STATE = { sections: sectionData };
 
