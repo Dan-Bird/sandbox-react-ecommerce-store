@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
+import { CartContext } from '../../providers/cart/CartProvider';
 import { createStructuredSelector } from 'reselect';
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
 import StripeCheckoutButton from '../../components/StripeCheckoutButton/StripeCheckoutButton';
-import {
-  selectCartItems,
-  selectCartTotal,
-} from '../../redux/cart/cart.selectors';
+import { selectCartTotal } from '../../redux/cart/cart.selectors';
 import styles from './Checkout.module.scss';
 
-const Checkout = ({ cartItems, cartTotal }) => {
+const Checkout = ({ cartTotal }) => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div className={styles.checkout}>
       <table className={styles.table}>
@@ -49,7 +49,6 @@ function renderTableBody(cartItems) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
   cartTotal: selectCartTotal,
 });
 
