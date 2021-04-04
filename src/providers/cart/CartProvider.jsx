@@ -30,9 +30,28 @@ const CartProvider = ({ children }) => {
   const clearItemFromCart = item =>
     setCartItems(filterItemFromCart(cartItems, item));
 
+  const setLocalItems = cartItems => {
+    window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    console.log('local called');
+    console.log(`cartItems: `, cartItems);
+  };
+
+  const getLocalItems = () =>
+    JSON.parse(window.localStorage.getItem('cartItems'));
+
+  useEffect(() => {
+    const localItems = getLocalItems();
+    if (localItems?.length) {
+      setCartItemsCount(getCartItemsCount(localItems));
+      setCartTotal(getCartTotal(localItems));
+      setCartItems(localItems);
+    }
+  }, []);
+
   useEffect(() => {
     setCartItemsCount(getCartItemsCount(cartItems));
     setCartTotal(getCartTotal(cartItems));
+    setLocalItems(cartItems);
   }, [cartItems]);
 
   return (
