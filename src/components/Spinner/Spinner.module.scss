@@ -1,0 +1,29 @@
+.spinner-overlay {
+  align-items: center;
+  display: flex;
+  height: 60vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.spinner-container {
+  -webkit-animation: spin 1s ease-in-out infinite;
+  animation: spin 1s ease-in-out infinite;
+  border-radius: 50%;
+  border-top-color: #636767;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
