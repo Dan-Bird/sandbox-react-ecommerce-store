@@ -10,7 +10,7 @@ import { default as HeaderNav } from './components/HeaderNav/HeaderNav.container
 import HomePage from './pages/Homepage/HomePage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
-import Checkout from './pages/Checkout/Checkout';
+import { default as Checkout } from './pages/Checkout/Checkout.container';
 
 function App({ setCurrentUser, currentUser }) {
   useEffect(() => {
