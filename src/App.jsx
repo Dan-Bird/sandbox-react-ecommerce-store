@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
-import HeaderNav from './components/HeaderNav/HeaderNav';
+import { default as HeaderNav } from './components/HeaderNav/HeaderNav.container';
 import HomePage from './pages/Homepage/HomePage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
