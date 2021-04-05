@@ -7,7 +7,7 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import styles from './HeaderNav.module.scss';
 import { ReactComponent as Logo } from '../../assets/crown-logo.svg';
 import { default as CartIcon } from '../CartIcon/CartIcon.container';
-import CartDropdown from '../CartDropdown/CartDropdown';
+import { default as CartDropdown } from '../CartDropdown/CartDropdown.container';
 
 const HeaderNav = ({ currentUser, hidden }) => {
   return (
