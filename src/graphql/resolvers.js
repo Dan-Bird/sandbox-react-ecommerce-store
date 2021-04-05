@@ -18,20 +18,15 @@ const GET_CART_HIDDEN = gql`
   }
 `;
 
-const GET_ITEM_COUNT = gql`
-  {
-    itemCount @client
-  }
-`;
-
 const GET_CART_ITEMS = gql`
   {
     cartItems @client
   }
 `;
 
-const GET_CART_TOTAL = gql`
+const GET_ITEM_COUNT_AND_TOTAL = gql`
   {
+    itemCount @client
     cartTotal @client
   }
 `;
@@ -59,13 +54,11 @@ export const resolvers = {
       const newCartItems = addItemToCart(cartItems, item);
 
       cache.writeQuery({
-        query: GET_ITEM_COUNT,
-        data: { itemCount: getCartItemCount(newCartItems) },
-      });
-
-      cache.writeQuery({
-        query: GET_CART_TOTAL,
-        data: { cartTotal: getCartTotal(newCartItems) },
+        query: GET_ITEM_COUNT_AND_TOTAL,
+        data: {
+          itemCount: getCartItemCount(newCartItems),
+          cartTotal: getCartTotal(newCartItems),
+        },
       });
 
       cache.writeQuery({
