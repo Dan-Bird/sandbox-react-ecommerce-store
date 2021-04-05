@@ -1,5 +1,5 @@
 import React from 'react';
-import CollectionItem from '../../components/CollectionItem/CollectionItem';
+import { default as CollectionItem } from '../../components/CollectionItem/CollectionItem.container';
 import styles from './Collection.module.scss';
 
 const Collection = ({ collection }) => {
