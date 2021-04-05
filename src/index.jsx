@@ -9,8 +9,9 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-boost';
 import { typeDefs, resolvers } from './graphql/resolvers';
+import { default as data } from './graphql/initial-data';
 import './index.css';
-import App from './App';
+import { default as App } from './App/App.container';
 // import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 // import reportWebVitals from './reportWebVitals';
 
@@ -27,14 +28,7 @@ const client = new ApolloClient({
   resolvers,
 });
 
-client.writeData({
-  data: {
-    cartHidden: true,
-    cartItems: [],
-    itemCount: 0,
-    cartTotal: 0,
-  },
-});
+client.writeData({ data });
 
 ReactDOM.render(
   <React.StrictMode>

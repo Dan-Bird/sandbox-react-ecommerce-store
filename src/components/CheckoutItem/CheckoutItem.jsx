@@ -1,10 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import {
-  clearItemFromCart,
-  addItem,
-  removeItem,
-} from '../../redux/cart/cart.actions';
 import styles from './CheckoutItem.module.scss';
 
 const CheckoutItem = ({
@@ -16,10 +10,6 @@ const CheckoutItem = ({
 }) => {
   const { name, quantity, price, imageUrl } = cartItem;
 
-  const handleClearItem = () => clearItem(cartItem);
-  const handleAddItem = () => addItem(cartItem);
-  const handleRemoveItem = () => removeItem(cartItem);
-
   return (
     <tr className={styles['checkout-item']} {...otherProps}>
       <td>
@@ -27,17 +17,17 @@ const CheckoutItem = ({
       </td>
       <td className={styles.name}>{name}</td>
       <td>
-        <button className={styles.button} onClick={handleRemoveItem}>
+        <button className={styles.button} onClick={() => removeItem(cartItem)}>
           &#10094;
         </button>
         <span className={styles.quantity}>{quantity}</span>
-        <button className={styles.button} onClick={handleAddItem}>
+        <button className={styles.button} onClick={() => addItem(cartItem)}>
           &#10095;
         </button>
       </td>
       <td className={styles.price}>£{price}</td>
       <td className={styles['remove-column']}>
-        <button className={styles.button} onClick={handleClearItem}>
+        <button className={styles.button} onClick={() => clearItem(cartItem)}>
           &#10005;
         </button>
       </td>
@@ -45,10 +35,4 @@ const CheckoutItem = ({
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  clearItem: item => dispatch(clearItemFromCart(item)),
-  addItem: item => dispatch(addItem(item)),
-  removeItem: item => dispatch(removeItem(item)),
-});
-
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default CheckoutItem;
