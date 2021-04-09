@@ -1,0 +1,22 @@
+.error-image__overlay {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.error-image__container {
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  height: 40vh;
+  width: 40vh;
+}
+
+.error-image__text {
+  color: #180ad8;
+  font-size: 28px;
+  font-weight: bold;
+}

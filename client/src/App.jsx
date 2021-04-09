@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 import HeaderNav from './components/HeaderNav/HeaderNav';
 import { checkUserSession } from './redux/user/user.actions';
@@ -22,21 +23,23 @@ function App({ currentUser, checkUserSession }) {
     <div>
       <HeaderNav />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
 
-          <Route path="/shop" component={ShopPage} />
+            <Route path="/shop" component={ShopPage} />
 
-          <Route exact path="/signin">
-            {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
-          </Route>
+            <Route exact path="/signin">
+              {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
+            </Route>
 
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
-        </Suspense>
+            <Route path="/checkout">
+              <Checkout />
+            </Route>
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
