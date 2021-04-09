@@ -6,10 +6,18 @@ $header-side-padding: 15px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
-  padding: 25px $header-side-padding;
   position: relative;
   width: 100%;
+
+  @media screen and (min-width: 800px) {
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 801px) {
+    margin-bottom: 25px;
+    padding: 25px $header-side-padding;
+  }
 
   & [class^='CartDropdown'] {
     right: $header-side-padding;
@@ -22,7 +30,10 @@ $header-side-padding: 15px;
   display: flex;
   height: 100%;
   justify-content: flex-end;
-  width: 50%;
+
+  @media screen and (min-width: 800px) {
+    width: 50%;
+  }
 }
 
 .nav-link {
