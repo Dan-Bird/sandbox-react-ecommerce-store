@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store, persistor } from './redux/store';
-import { PersistGate } from 'redux-persist/es/integration/react';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -33,13 +30,9 @@ client.writeData({ data });
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Provider store={store}>
-        <Router>
-          <PersistGate persistor={persistor}>
-            <App />
-          </PersistGate>
-        </Router>
-      </Provider>
+      <Router>
+        <App />
+      </Router>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
