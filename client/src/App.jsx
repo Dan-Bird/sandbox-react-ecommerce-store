@@ -1,38 +1,42 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 import HeaderNav from './components/HeaderNav/HeaderNav';
-import HomePage from './pages/Homepage/HomePage';
-import ShopPage from './pages/ShopPage/ShopPage';
-import LoginAndRegister from './pages/LoginAndRegister/LoginAndRegister';
-import Checkout from './pages/Checkout/Checkout';
 import { checkUserSession } from './redux/user/user.actions';
+import Spinner from './components/Spinner/Spinner';
+
+const HomePage = lazy(() => import('./pages/Homepage/HomePage'));
+const ShopPage = lazy(() => import('./pages/ShopPage/ShopPage'));
+const LoginAndRegister = lazy(() => import('./pages/Checkout/Checkout'));
+const Checkout = lazy(() => import('./pages/Homepage/HomePage'));
 
 function App({ currentUser, checkUserSession }) {
   useEffect(() => {
     checkUserSession();
-  }, [checkUserSession])
+  }, [checkUserSession]);
 
   return (
     <div>
       <HeaderNav />
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
 
-        <Route path="/shop" component={ShopPage} />
+          <Route path="/shop" component={ShopPage} />
 
-        <Route exact path="/signin">
-          {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
-        </Route>
+          <Route exact path="/signin">
+            {currentUser ? <Redirect to="/" /> : <LoginAndRegister />}
+          </Route>
 
-        <Route path="/checkout">
-          <Checkout />
-        </Route>
+          <Route path="/checkout">
+            <Checkout />
+          </Route>
+        </Suspense>
       </Switch>
     </div>
   );
@@ -43,7 +47,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
-})
+  checkUserSession: () => dispatch(checkUserSession()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
