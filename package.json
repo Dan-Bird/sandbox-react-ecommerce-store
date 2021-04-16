@@ -2,7 +2,7 @@
   "name": "crown-clothing-server",
   "version": "1.0.0",
   "engines": {
-    "node": "12.13.1",
+    "node": "14.16.1",
     "npm": "7.6.0"
   },
   "scripts": {
