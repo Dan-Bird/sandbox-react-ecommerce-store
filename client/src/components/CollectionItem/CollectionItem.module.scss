@@ -41,7 +41,7 @@
   flex-grow: 1;
 }
 
-[class^='CustomButton'] {
+.collection-item [class^='CustomButton'] {
   .collection-item & {
     width: 80%;
     position: absolute;
