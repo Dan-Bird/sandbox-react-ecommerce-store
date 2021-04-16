@@ -11,7 +11,9 @@ import Spinner from './components/Spinner/Spinner';
 
 const HomePage = lazy(() => import('./pages/Homepage/HomePage'));
 const ShopPage = lazy(() => import('./pages/ShopPage/ShopPage'));
-const LoginAndRegister = lazy(() => import('./pages/Checkout/Checkout'));
+const LoginAndRegister = lazy(() =>
+  import('./pages/LoginAndRegister/LoginAndRegister')
+);
 const Checkout = lazy(() => import('./pages/Checkout/Checkout'));
 
 function App({ currentUser, checkUserSession }) {
